@@ -2,7 +2,7 @@ from pyrogram import Client
 from Config import API_ID, API_HASH, BOT_TOKEN
 from Utils.Scheduler import schedule_daily_messages
 
-from Handlers import start, message, setname, lovemeter
+from Handlers import Start, Message, Setname, Lovemeter
 
 app = Client("ai_gf_bot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
 

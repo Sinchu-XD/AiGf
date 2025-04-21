@@ -1,7 +1,8 @@
 import openai
+from Config import API_KEY
 from Utils.Userdata import get_name
 
-openai.api_key = "your_openai_api_key"
+openai.api_key = API_KEY
 
 async def get_ai_reply(user_id, message):
     name = get_name(user_id) or "love"

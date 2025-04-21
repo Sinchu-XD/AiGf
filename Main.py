@@ -1,8 +1,7 @@
 import asyncio
 from pyrogram import Client, filters
 from Config import API_ID, API_HASH, BOT_TOKEN
-from Handlers.Start import handler as start_handler
-from Handlers.Setname import handler as setname_handler
+from Handlers import Start, Message, Setname, Lovemeter
 from Utils.Scheduler import schedule_daily_messages
 from Utils.Userdata import load_data
 
@@ -10,15 +9,20 @@ app = Client("ai_gf_bot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
 
 
 CHAT_USERNAME = "@nusickatic"
+USER_IDS = []
+
+@app.on_message()
+async def track_user(client, msg):
+    if msg.chat.type == "private" and msg.from_user.id not in USER_IDS:
+        USER_IDS.append(msg.from_user.id)
+
 async def main():
-    user_data = load_data()
-    user_ids = list(user_data.keys())
+    app.add_handler(Start.handler)
+    app.add_handler(Setname.handler)
+    app.add_handler(Lovemeter.handler)
+    app.add_handler(Message.handler)
 
-    app.add_handler(start_handler)
-    app.add_handler(setname_handler)
-
-    schedule_daily_messages(app, user_ids)
-
+    schedule_daily_messages(app, USER_IDS)
     await app.start()
     print("Bot is running...")
     await app.send_message(CHAT_USERNAME, "✅ Bot has started!")

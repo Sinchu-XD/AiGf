@@ -9,12 +9,6 @@ from Utils.Userdata import load_data
 app = Client("ai_gf_bot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
 
 
-@Client.on_message(filters.command("start"))
-async def start_command(client, message):
-    print(f"Received /start command from {message.from_user.username}")
-    await message.reply("Hey! I'm your AI Partner ❤️\nUse /setname <yourname> to get started.")
-    await app.send_message(message.chat.id, "I just sent this via app.send_message()!")
-
 CHAT_USERNAME = "@nusickatic"
 async def main():
     user_data = load_data()
@@ -27,7 +21,7 @@ async def main():
 
     await app.start()
     print("Bot is running...")
-    await app.send_message(CHAT_USERNAME, "✅ Music bot has started and is ready to play music!")
+    await app.send_message(CHAT_USERNAME, "✅ Bot has started!")
     
     await asyncio.get_event_loop().create_future()
 

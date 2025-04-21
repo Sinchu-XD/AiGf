@@ -14,10 +14,10 @@ async def track_user(client, msg):
     if msg.chat.type == "private" and msg.from_user.id not in USER_IDS:
         USER_IDS.append(msg.from_user.id)
 
-app.add_handler(start.handler)
-app.add_handler(setname.handler)
-app.add_handler(lovemeter.handler)
-app.add_handler(message.handler)
+app.add_handler(Start.handler)
+app.add_handler(Setname.handler)
+app.add_handler(Lovemeter.handler)
+app.add_handler(Message.handler)
 
 schedule_daily_messages(app, USER_IDS)
 

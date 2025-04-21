@@ -1,0 +1,6 @@
+pyrofork
+tgcrypto
+apscheduler
+pytz
+gTTS
+openai

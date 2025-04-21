@@ -15,7 +15,7 @@ async def start_command(client, message):
     await message.reply("Hey! I'm your AI Partner ❤️\nUse /setname <yourname> to get started.")
     await app.send_message(message.chat.id, "I just sent this via app.send_message()!")
 
-CHAT_USERNAME = "@tesinglele"
+CHAT_USERNAME = "@nusickatic"
 async def main():
     user_data = load_data()
     user_ids = list(user_data.keys())

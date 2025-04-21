@@ -17,7 +17,7 @@ USER_IDS = []
 
 @app.on_message()
 async def track_user(client, msg):
-    if msg.chat.type == "private", "group" and msg.from_user.id not in USER_IDS:
+    if msg.chat.type == "private" and msg.from_user.id not in USER_IDS:
         USER_IDS.append(msg.from_user.id)
 
 async def main():

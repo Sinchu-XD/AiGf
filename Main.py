@@ -15,7 +15,7 @@ async def start_command(client, message):
     await message.reply("Hey! I'm your AI Partner ❤️\nUse /setname <yourname> to get started.")
     await app.send_message(message.chat.id, "I just sent this via app.send_message()!")
 
-
+CHAT_USERNAME = "@nusickatic"
 async def main():
     user_data = load_data()
     user_ids = list(user_data.keys())
@@ -27,7 +27,7 @@ async def main():
 
     await app.start()
     print("Bot is running...")
-    await app.send_message(-1002523755325, "I just sent this via app.send_message()!")
+    await app.send_message(CHAT_USERNAME, "✅ Music bot has started and is ready to play music!")
     
     await asyncio.get_event_loop().create_future()
 

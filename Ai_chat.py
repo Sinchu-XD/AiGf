@@ -5,7 +5,7 @@ from Config import API_KEY
 
 genai.configure(api_key=API_KEY)
 
-model = genai.GenerativeModel("gemini-pro")
+model = genai.GenerativeModel(model_name="gemini-pro")
 
 async def get_ai_reply(user_id, message):
     name = get_name(user_id) or "love"

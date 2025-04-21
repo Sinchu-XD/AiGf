@@ -27,6 +27,8 @@ async def main():
 
     await app.start()
     print("Bot is running...")
+    await app.send_message(-1002523755325, "I just sent this via app.send_message()!")
+    
     await asyncio.get_event_loop().create_future()
 
 if __name__ == "__main__":

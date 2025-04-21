@@ -1,5 +1,5 @@
 import asyncio
-from pyrogram import Client
+from pyrogram import Client, filters
 from Config import API_ID, API_HASH, BOT_TOKEN
 from Handlers.Start import handler as start_handler
 from Handlers.Setname import handler as setname_handler
